@@ -1,8 +1,9 @@
 #!/bin/bash
 
-JUDGES_DIR="/home/ejudge/judges"
-EJUDGE_BIN_DIR="/home/ejudge/inst-ejudge/bin"
-EJUDGE_INST_PATH="/home/ejudge/inst-ejudge/"
+JUDGES_DIR="/var/lib/ejudge"
+EJUDGE_BIN_DIR="/usr/bin"
+EJUDGE_INST_PATH="/usr"
+EJUDGE_UID="vasalf"
 MYSQL_USER="ejudge"
 MYSQL_PASSWD="ejudge"
 MYSQL_DB_NAME="ejudge"
@@ -11,7 +12,7 @@ MYSQL_DB_NAME="ejudge"
 echo ""
 echo "Setting ejudge down"
 echo ""
-sudo -u ejudge $EJUDGE_BIN_DIR/ejudge-control stop
+sudo -u $EJUDGE_UID $EJUDGE_BIN_DIR/ejudge-control stop
 if [ $? -ne 0 ]; then
     echo ""
     echo "An error occured, ejudge was not restored."
